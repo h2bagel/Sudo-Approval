@@ -3,8 +3,6 @@
 **sudo-approval** is a fork of the original `sudo_confirm` plugin.\
 It is a sudo approval plugin that prompts users to confirm sudo commands before execution, with added features.
 
----
-
 ## Features
 
 - Prompts users before executing commands as another user or root
@@ -13,16 +11,12 @@ It is a sudo approval plugin that prompts users to confirm sudo commands before 
 - Colored output for root user prompts
 - Logging to `/var/log/sudo_approval.log`
 
----
-
 ## License
 
 - Original code: MIT License (© 2024 e792a8)
 - Modifications: LGPL v3 (© 2026 h2bagel)
 
 This project **combines MIT-licensed code with LGPL-licensed modifications**. See the `LICENSE` file for full license texts.
-
----
 
 ## Installation
 
@@ -59,8 +53,6 @@ Do you want to run '<command>' as <user>?
 - If `yes` is specified, it defaults to `[Y/n]`.
 - If `noconfirm` is specified, the prompt is skipped.
 
----
-
 ## Logging
 
 All suspicious activity is logged to:
@@ -75,8 +67,6 @@ This includes:
 - Sensitive environment variables
 - ANSI escape sequences in input
 
----
-
 ## Contributing
 
 - Fork the repository
@@ -84,8 +74,6 @@ This includes:
 - Submit pull requests
 
 Ensure **all modifications comply with LGPL v3**, and retain MIT licensing notices for original code.
-
----
 
 ## Notes
 
