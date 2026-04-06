@@ -23,7 +23,7 @@ for pofile in po/*.po; do
 done
 
 if [[ -f etc/sudo.conf ]]; then
-    if grep -q '^Plugin\s\+sudo_approval\s\+/usr/lib/sudo/sudo_approval.so' etc/sudo.conf; then
+    if grep -q '^Plugin\s\+sudo_approval\s\+/usr/lib/sudo/sudo_approval.so' /etc/sudo.conf; then
         echo "Removing old plugin entry from sudo.conf..."
         sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' etc/sudo.conf
     fi
@@ -47,5 +47,7 @@ for mofile in locale/*/LC_MESSAGES/sudo_approval.mo; do
     lang=$(basename "$(dirname "$(dirname "$mofile")")")
     install -Dm644 "$mofile" "/usr/share/locale/$lang/LC_MESSAGES/sudo_approval.mo" || exit 1
 done
+
+echo 'Plugin sudo_approval /usr/lib/sudo/sudo_approval.so' >> /etc/sudo.conf
 
 echo "sudo_approval installed successfully!"
