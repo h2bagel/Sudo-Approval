@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sudo_approval 1.0\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Do you want to run '%s' as %s?\n"
+msgstr "¿Desea ejecutar '%s' como %s?\n"
+
+msgid "unknown"
+msgstr "desconocido"
+
+msgid "Root"
+msgstr "Root"
+
+msgid "[y/N] "
+msgstr "[s/N] "
+
+msgid "[Y/n] "
+msgstr "[S/n] "
+
+msgid "Action cancelled.\n"
+msgstr "Acción cancelada.\n"
+
+msgid "Unknown user: %s\n"
+msgstr "Usuario desconocido: %s\n"
+
+msgid "Unknown group: %s\n"
+msgstr "Grupo desconocido: %s\n"
+
+msgid "sudo approval plugin version %s\n"
+msgstr "Plugin Sudo Approval versión %s\n"
+
+msgid "Non-interactive input is not allowed.\n"
+msgstr "No se permite entrada no interactiva.\n"
+
+msgid "No controlling terminal.\n"
+msgstr "No hay terminal de control.\n"
+
+msgid "Unable to access controlling terminal.\n"
+msgstr "No se puede acceder al terminal de control.\n"
+
+msgid "Not a terminal.\n"
+msgstr "No es un terminal.\n"
+
+msgid "ANSI escape sequence detected"
+msgstr "Secuencia de escape ANSI detectada"
+
+msgid "Command truncated"
+msgstr "Comando truncado"
+
+msgid "Empty command detected"
+msgstr "Comando vacío detectado"
+
+msgid "Plugin terminated by signal %d\n"
+msgstr "Plugin terminado por la señal %d\n"
+
+msgid "Sensitive environment variable detected"
+msgstr "Variable de entorno sensible detectada"

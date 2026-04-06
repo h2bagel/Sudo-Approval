@@ -1,13 +1,13 @@
-VERSION = 0.2.1
+VERSION = 0.1.0
 
 CC = gcc
 CFLAGS = -DPACKAGE_VERSION=\"$(VERSION)\" -shared -fPIC
 
 .PHONY: all clean
-all: sudo_confirm.so
+all: sudo_approval.so
 
 clean:
-	-rm sudo_confirm.so
+	-rm sudo_approval.so
 
-sudo_confirm.so: sudo_confirm.c
+sudo_approval.so: sudo_approval.c
 	$(CC) $(CFLAGS) $< -o $@
