@@ -23,6 +23,7 @@ This project **combines MIT-licensed code with LGPL-licensed modifications**. Se
 ### From Source
 
 ```bash
+git clone https://github.com/h2bagel/Sudo-Approval
 cd Sudo-Approval
 sudo ./install-script
 ```
