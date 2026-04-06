@@ -32,7 +32,7 @@ sudo ./install-script
 ### From Source
 
 ```bash
-sudo sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' etc/sudo.conf
+sudo sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' /etc/sudo.conf
 sudo rm /usr/lib/sudo/sudo_confirm.so
 ```
 
