@@ -25,7 +25,7 @@ done
 if [[ -f etc/sudo.conf ]]; then
     if grep -q '^Plugin\s\+sudo_approval\s\+/usr/lib/sudo/sudo_approval.so' /etc/sudo.conf; then
         echo "Removing old plugin entry from sudo.conf..."
-        sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' etc/sudo.conf
+        sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' /etc/sudo.conf
     fi
 fi
 
