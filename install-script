@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root."
+    exit 1
+fi
+
+if ! command -v msgfmt &>/dev/null; then
+    echo "msgfmt not found. Please install gettext."
+    exit 1
+fi
+
+echo "Building sudo_approval..."
+make || { echo "Make failed"; exit 1; }
+
+echo "Compiling translations..."
+for pofile in po/*.po; do
+    lang=$(basename "$pofile" .po)
+    mkdir -p "locale/$lang/LC_MESSAGES"
+    msgfmt "$pofile" -o "locale/$lang/LC_MESSAGES/sudo_approval.mo" || {
+        echo "Failed to compile $pofile"; exit 1;
+    }
+done
+
+if [[ -f etc/sudo.conf ]]; then
+    if grep -q '^Plugin\s\+sudo_approval\s\+/usr/lib/sudo/sudo_approval.so' etc/sudo.conf; then
+        echo "Removing old plugin entry from sudo.conf..."
+        sed -i '/^Plugin\s\+sudo_approval\s\+\/usr\/lib\/sudo\/sudo_approval.so.*/d' etc/sudo.conf
+    fi
+fi
+
+if [[ -f /usr/lib/sudo/sudo_approval.so ]]; then
+    echo "Removing old sudo_approval.so..."
+    rm -f /usr/lib/sudo/sudo_approval.so
+fi
+
+for lang_dir in /usr/share/locale/*/LC_MESSAGES; do
+    mo_file="$lang_dir/sudo_approval.mo"
+    [[ -f "$mo_file" ]] && rm -f "$mo_file"
+done
+
+echo "Installing plugin..."
+install -Dm644 "./sudo_approval.so" "/usr/lib/sudo/sudo_approval.so" || exit 1
+
+echo "Installing translations..."
+for mofile in locale/*/LC_MESSAGES/sudo_approval.mo; do
+    lang=$(basename "$(dirname "$(dirname "$mofile")")")
+    install -Dm644 "$mofile" "/usr/share/locale/$lang/LC_MESSAGES/sudo_approval.mo" || exit 1
+done
+
+echo "sudo_approval installed successfully!"
